@@ -53,7 +53,8 @@ ngOnInit(): void {
 HouseModels(){
   this.HouseService.house_models().subscribe({
     next:(res)=>{
-      this.Models= res.data
+      this.Models= res.data; 
+      this.filteredModels = res.data;
       console.log(this.Models )
     }
     ,error:(err)=>{
@@ -65,7 +66,7 @@ fliterModel(event:any){
   const filterValue = event.target.value.toLowerCase();
   console.log(filterValue)
   this.filteredModels = this.Models.filter(model =>
-    model.attributes.model.toLowerCase().includes(filterValue)
+    model.attributes. media.title.toLowerCase().includes(filterValue)
   );
 console.log(this.filteredModels)
 }
