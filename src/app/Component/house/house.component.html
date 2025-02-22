@@ -24,9 +24,9 @@
             </div>
             <div class="col-md-2">
 
-                <select class="form-select" >
+                <select class="form-select" (change)="fliterModel($event)">
                     <option>Model</option>
-                    <option *ngFor="let House of Houses">{{House.id}}</option>
+                    <option *ngFor="let House of Models" [value]="House.attributes.model">{{House.attributes.model }}</option>
                 </select>
             </div>
        
@@ -38,17 +38,15 @@
     </div>
 </div>
 <div class="border border-dark">
-    <p class="border border-dark m-0"(click)="HouseModels(1)">House model 1 </p>
-    <p class="border border-dark m-0 bg-primary"(click)="HouseModels(2)">House model 2 </p>
+    <p class="border border-dark m-0">House model 1 </p>
+    <p class="border border-dark m-0 bg-primary">House model 2 </p>
 <div class="row p-3">
     <div class="col-md-6">
-<h6>{{Models.attributes.media.title}}</h6>
-<p>{{Models.attributes.media.description}}</p>
+        <h6 *ngIf="filteredModels.length > 0">{{ filteredModels[0].attributes.media.title }}</h6>
+        <p *ngIf="filteredModels.length > 0">{{ filteredModels[0].attributes.media.description }}</p>
     </div>
     <div class="col-md-6">
-<video class="w-100">
-<source src="../../../assets/OIP.jpeg">
-</video>
+<img src="../../../assets/OIP.jpeg" class="w-100">
     </div>
 </div>
     <table border="2"class="table  m-auto ">
@@ -76,8 +74,8 @@
         </tr>
      
     </table>
-    <p class="border border-dark m-0 mt-3"(click)="HouseModels(3)">House model 3 </p>
-    <p class="border border-dark m-0 "(click)="HouseModels(4)">House model 4 </p>
+    <p class="border border-dark m-0 mt-3">House model 3 </p>
+    <p class="border border-dark m-0 ">House model 4 </p>
 </div>
     </div>
 </section>

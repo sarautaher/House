@@ -13,7 +13,7 @@
             <div class="row gy-3">
                 <div class="col-md-3">
                     <label for="HouseNumber" class="form-label">House Number</label>
-                    <input class="form-control" type="text" id="House Number" formControlName="house_number">
+                    <input class="form-control rounded-pill rounded-pill" type="text" id="House Number" formControlName="house_number">
                     <div *ngIf="House.get('house_number')?.errors||House.get('house_number')?.touched"
                         class="text-danger">
                         <small *ngIf="House.get('house_number')?.getError('required')">House Number is required</small>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="BlockNumber" class="form-label">Block Number</label>
-                    <input class="form-control" type="text" id="BlockNumber" formControlName="block_number">
+                    <input class="form-control rounded-pill" type="text" id="BlockNumber" formControlName="block_number">
                     <div *ngIf="House.get('block_number')?.errors||House.get('block_number')?.touched"
                         class="text-danger">
                         <small *ngIf="House.get('block_number')?.getError('required')">Block Number is required</small>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="Land" class="form-label">land Number</label>
-                    <input class="form-control" type="text" id="Land" formControlName="land_number">
+                    <input class="form-control rounded-pill" type="text" id="Land" formControlName="land_number">
                     <div *ngIf="House.get('land_number')?.errors||House.get('land_number')?.touched"
                         class="text-danger">
                         <small *ngIf="House.get('land_number')?.getError('required')">Land Number is required</small>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="HouseType" class="form-label">House Type</label>
-                    <input class="form-control" id="HouseType" type="text" formControlName="house_type">
+                    <input class="form-control rounded-pill" id="HouseType" type="text" formControlName="house_type">
                     <div *ngIf="House.get('house_type')?.errors||House.get('house_type')?.touched" class="text-danger">
                         <small *ngIf="House.get('house_type')?.getError('required')">house_type is required</small>
                     </div>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="Housemodel" class="form-label">House model</label>
-                    <input class="form-control" type="text" id="Housemodel" formControlName="model">
+                    <input class="form-control rounded-pill" type="text" id="Housemodel" formControlName="model">
                     <div *ngIf="House.get('model')?.errors||House.get('model')?.touched" class="text-danger">
                         <small *ngIf="House.get('model')?.getError('required')">House model is required</small>
                        
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="Price" class="form-label">Price</label>
-                    <input class="form-control" type="text" id="Price" formControlName="price">
+                    <input class="form-control rounded-pill" type="text" id="Price" formControlName="price">
                     <div *ngIf="House.get('price')?.errors||House.get('price')?.touched" class="text-danger">
                         <small *ngIf="House.get('price')?.getError('required')">price Number is required</small>
                         <small *ngIf="House.get('price')?.getError('pattern')">price Number must Number </small>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="Statue" class="form-label">Statue</label>
-                    <input class="form-control" type="text" id="Statue" formControlName="status">
+                    <input class="form-control rounded-pill" type="text" id="Statue" formControlName="status">
                     <div *ngIf="House.get('status')?.errors||House.get('status')?.touched" class="text-danger">
                         <small *ngIf="House.get('status')?.getError('required')">status Number is required</small>
                       

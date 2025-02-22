@@ -11,8 +11,8 @@ export class HouseService {
   AllHouse(): Observable<any> {
     return this._HttpClient.get('https://vn-fe-test-api.iwalabs.info/houses');
   }
-  house_models(id:any):Observable<any>{
-    return this._HttpClient.get(`https://vn-fe-test-api.iwalabs.info/house_models/${id}`)
+  house_models():Observable<any>{
+    return this._HttpClient.get(`https://vn-fe-test-api.iwalabs.info/house_models`)
   }
   CreatHouse(House: any): Observable<any> {
     const headers = new HttpHeaders({

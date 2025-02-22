@@ -9,13 +9,15 @@ import { AuthService } from '../../Service/auth.service';
 @Component({
   selector: 'app-house',
   standalone: true,
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink,CommonModule ,ReactiveFormsModule],
   templateUrl: './house.component.html',
   styleUrl: './house.component.css'
 })
 export class HouseComponent implements OnInit {
   Houses:any[]=[]
-  Models:any
+  Models:any[]=[]
+  filteredModels:any[]=[]
+  name:string="apartment-3"
   userToken:boolean=true
   constructor(private HouseService:HouseService,private _Auth:AuthService,private _ToastrService:ToastrService){
     _Auth.user.subscribe({
@@ -30,7 +32,8 @@ export class HouseComponent implements OnInit {
   }
 ngOnInit(): void {
     this.AllHouse()
-  this.HouseModels(1);
+  this.HouseModels();
+  this.fliterModel('apartment-2')
     if(localStorage.getItem('userToken')==null){
       this.userToken=false
     }
@@ -47,15 +50,23 @@ ngOnInit(): void {
       }
     }) }
    
-HouseModels(id:any){
-  this.HouseService.house_models(id).subscribe({
+HouseModels(){
+  this.HouseService.house_models().subscribe({
     next:(res)=>{
       this.Models= res.data
-      console.log(this.Models)
+      console.log(this.Models )
     }
     ,error:(err)=>{
       this._ToastrService.error(err.error.errors[0].detail)
     } 
   })
+}
+fliterModel(event:any){
+  const filterValue = event.target.value.toLowerCase();
+  console.log(filterValue)
+  this.filteredModels = this.Models.filter(model =>
+    model.attributes.model.toLowerCase().includes(filterValue)
+  );
+console.log(this.filteredModels)
 }
 }

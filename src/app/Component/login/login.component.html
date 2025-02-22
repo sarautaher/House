@@ -1,6 +1,6 @@
 <nav id="navbar-example" class='navbar pt-3 pb-1  navbar-expand-lg  navbar-light    '>
     <div class="container">
-        <a class="navbar-brand" [routerLink]="['/House']" routerLinkActive="router-link-active"><i class='fa fa-home  fa-2x'> </i> <span>House</span></a>
+        <a class="navbar-brand" [routerLink]="['/House']" routerLinkActive="router-link-active"><span>Oivan Estate</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,7 @@
             <form class="ms-auto" (ngSubmit)="login()" [formGroup]="user" *ngIf="!islood">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item d-flex align-items-center m-1 text-main">
-                        <input class="form-control" type="text" formControlName="username"
+                        <input class="form-control rounded-pill" type="text" formControlName="username"
                             placeholder="Enter your username">
                         <div class="text-danger" *ngIf="user.get('username')?.errors||user.get('username')?.touched">
                             <small *ngIf="user.get('username')?.getError('required')">User Name is required</small>
@@ -18,7 +18,7 @@
                         </div>
                     </li>
                     <li class="nav-item m-1 ">
-                        <input class="form-control" type="password" formControlName="password"
+                        <input class="form-control rounded-pill" type="password" formControlName="password"
                             placeholder="Enter your password">
                         <div *ngIf="user.get('password')?.errors &&user.touched">
                             <p class="text-danger" *ngIf="user.get('password')?.getError('required')"> password is
@@ -29,7 +29,7 @@
                         </div>
                     </li>
                     <li class="nav-item  m-1">
-                        <button class="btn btn-light " type="submit">login</button>
+                        <button class="btn btn-light rounded-pill" type="submit">login</button>
                     </li>
                 </ul>
             </form>
