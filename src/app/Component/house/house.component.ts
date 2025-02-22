@@ -15,6 +15,7 @@ import { AuthService } from '../../Service/auth.service';
 })
 export class HouseComponent implements OnInit {
   Houses:any[]=[]
+  Models:any
   userToken:boolean=true
   constructor(private HouseService:HouseService,private _Auth:AuthService,private _ToastrService:ToastrService){
     _Auth.user.subscribe({
@@ -29,6 +30,7 @@ export class HouseComponent implements OnInit {
   }
 ngOnInit(): void {
     this.AllHouse()
+  this.HouseModels(1);
     if(localStorage.getItem('userToken')==null){
       this.userToken=false
     }
@@ -38,11 +40,23 @@ ngOnInit(): void {
       next:(res)=>{
         this._ToastrService.success("welcome! We are thrilled to have you here.")
         this.Houses= res.data
+        console.log(this.Houses)
       }
       ,error:(err)=>{
         this._ToastrService.error(err.error.errors[0].detail)
       }
     }) }
    
-
+HouseModels(id:any){
+  this.HouseService.house_models(id).subscribe({
+    next:(res)=>{
+      this._ToastrService.success("welcome! We are thrilled to have you here.")
+      this.Models= res.data
+      console.log(this.Models)
+    }
+    ,error:(err)=>{
+      this._ToastrService.error(err.error.errors[0].detail)
+    } 
+  })
+}
 }

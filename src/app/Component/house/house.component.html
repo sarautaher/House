@@ -1,27 +1,54 @@
 <section id="House">
     <div class="container">
 <div class="row p-3">
-    <div class="col-md-10">
-        <button class="btn btn-light m-1">Block Numer</button>
-        <button class="btn btn-light m-1">Lana Numer</button>
-        <button class="btn btn-light m-1">Price Max</button>
-        <button class="btn btn-light m-1">Price Min</button>
-    </div>
+    <div class="col-md-2">
+       
+            <select class="form-select">
+              <option>Block Number</option>  
+                <option *ngFor="let House of Houses">{{House.attributes.block_number}}</option>
+            </select>
+            </div>
+            <div class="col-md-2">
+
+                <select class="form-select">
+                  <option>Lana Number</option>  
+                    <option *ngFor="let House of Houses">{{House.attributes.land_number}}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+
+                <select class="form-select">
+                  <option>Price Max</option>  
+                    <option *ngFor="let House of Houses">{{House.attributes.price}}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+
+                <select class="form-select" >
+                    <option>Model</option>
+                    <option *ngFor="let House of Houses">{{House.id}}</option>
+                </select>
+            </div>
+       
+        
+  
     <div class="col-md-2">
        <a [routerLink]="['/HouseNew']" routerLinkActive="router-link-active" >
         <button class="btn btn-light"*ngIf="userToken"> Creat House</button></a> 
     </div>
 </div>
 <div class="border border-dark">
-    <p class="border border-dark m-0">House model 1 </p>
-    <p class="border border-dark m-0 bg-primary">House model 2 </p>
+    <p class="border border-dark m-0"(click)="HouseModels(1)">House model 1 </p>
+    <p class="border border-dark m-0 bg-primary"(click)="HouseModels(2)">House model 2 </p>
 <div class="row p-3">
     <div class="col-md-6">
-<h6>House Model</h6>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ut magni harum nam nulla laborum, distinctio provident rerum, voluptas, dolores temporibus exercitationem. Deserunt accusamus velit quo voluptatem eius. Praesentium, eligendi.</p>
+<h6>{{Models.attributes.media.title}}</h6>
+<p>{{Models.attributes.media.description}}</p>
     </div>
     <div class="col-md-6">
-<img src="../../../assets/OIP.jpeg" class="w-100">
+<video class="w-100">
+<source [src]="Models.attributes.media.video">
+</video>
     </div>
 </div>
     <table border="2"class="table  m-auto ">
@@ -49,8 +76,8 @@
         </tr>
      
     </table>
-    <p class="border border-dark m-0 mt-3">House model 3 </p>
-    <p class="border border-dark m-0 ">House model 4 </p>
+    <p class="border border-dark m-0 mt-3"(click)="HouseModels(3)">House model 3 </p>
+    <p class="border border-dark m-0 "(click)="HouseModels(4)">House model 4 </p>
 </div>
     </div>
 </section>
