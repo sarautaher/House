@@ -50,7 +50,6 @@ ngOnInit(): void {
 HouseModels(id:any){
   this.HouseService.house_models(id).subscribe({
     next:(res)=>{
-      this._ToastrService.success("welcome! We are thrilled to have you here.")
       this.Models= res.data
       console.log(this.Models)
     }
