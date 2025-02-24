@@ -6,35 +6,38 @@
          <button class="btn btn-light"*ngIf="userToken"> Creat House</button></a> 
      </div>
     <div class="col-md-2">
-            <select class="form-select">
+            <select class="form-select rounded-pill">
               <option>Block Number</option>  
                 <option *ngFor="let House of Houses">{{House.attributes.block_number}}</option>
             </select>
             </div>
             <div class="col-md-2">
 
-                <select class="form-select">
+                <select class="form-select rounded-pill">
                   <option>Lana Number</option>  
                     <option *ngFor="let House of Houses">{{House.attributes.land_number}}</option>
                 </select>
             </div>
             <div class="col-md-2">
 
-                <select class="form-select">
+                <select class="form-select rounded-pill">
                   <option>Price Max</option>  
                     <option *ngFor="let House of Houses">{{House.attributes.price}}</option>
                 </select>
             </div>
             <div class="col-md-12" *ngFor="let House of Models; let i = index" data-aos="fade-up">
-                <button class="form-control fs-3 btn-primary m-3 rounded-pill"  
-                        (click)="fliterModel(House.attributes.model, i)" id="house">
+                <button class="form-control fs-3 btn-primary m-3 rounded-pill house"  
+                        (click)="fliterModel(House.attributes.model, i)" id="">
                   {{ House.attributes.media.title }}
                 </button>
               
                 <div class="d-none house-details" [id]="'HouseNew' + i">
                   <div class="row py-3 bg-light rounded-3">
-                      <div class="col-md-6">
-                        <img src="../../../assets/OIP.jpeg" class="w-100">
+                      <div class="col-md-6  ">
+                        <div class=" card-img overflow-hidden rounded-3">
+
+                            <img src="../../../assets/OIP.jpeg" class="w-100 card-img-top house ">
+                        </div>
                       </div>
                     <div class="col-md-6 p-3 ">
                       <h6 *ngIf="filteredModels.length > 0" class="h2">{{ filteredModels[0].attributes.media.title }}</h6>
