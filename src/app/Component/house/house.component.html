@@ -33,12 +33,12 @@
               
                 <div class="d-none house-details" [id]="'HouseNew' + i">
                   <div class="row py-3 bg-light rounded-3">
-                    <div class="col-6 p-3 ">
+                      <div class="col-md-6">
+                        <img src="../../../assets/OIP.jpeg" class="w-100">
+                      </div>
+                    <div class="col-md-6 p-3 ">
                       <h6 *ngIf="filteredModels.length > 0" class="h2">{{ filteredModels[0].attributes.media.title }}</h6>
                       <p *ngIf="filteredModels.length > 0" class="fs-5">{{ filteredModels[0].attributes.media.description }}</p>
-                    </div>
-                    <div class="col-6">
-                      <img src="../../../assets/OIP.jpeg" class="w-100">
                     </div>
                   </div>
               
