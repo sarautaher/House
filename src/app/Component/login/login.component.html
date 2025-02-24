@@ -11,7 +11,7 @@
                     <li class="nav-item d-flex align-items-center m-1 text-main">
                         <input class="form-control rounded-pill" type="text" formControlName="username"
                             placeholder="Enter your username">
-                        <div class="text-danger" *ngIf="user.get('username')?.errors||user.get('username')?.touched">
+                        <div class="text-danger" *ngIf="user.get('username')?.errors&&user.get('username')?.touched">
                             <small *ngIf="user.get('username')?.getError('required')">User Name is required</small>
                             <small *ngIf="user.get('username')?.getError('pattern')">Username must Start
                                 uppercase</small>
