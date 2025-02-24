@@ -16,7 +16,8 @@ import { AuthService } from '../../Service/auth.service';
 export class HouseComponent implements OnInit {
   Houses:any[]=[]
   Models:any[]=[]
-  filteredModels:any[]=[]
+  filteredModels:any[]=[];
+  filteredHouse:any[]=[]
   name:string="apartment-3"
   userToken:boolean=true
   constructor(private HouseService:HouseService,private _Auth:AuthService,private _ToastrService:ToastrService){
@@ -33,7 +34,7 @@ export class HouseComponent implements OnInit {
 ngOnInit(): void {
     this.AllHouse()
   this.HouseModels();
-  this.fliterModel('apartment-2')
+  
     if(localStorage.getItem('userToken')==null){
       this.userToken=false
     }
@@ -42,7 +43,8 @@ ngOnInit(): void {
     this.HouseService.AllHouse().subscribe({
       next:(res)=>{
         this._ToastrService.success("welcome! We are thrilled to have you here.")
-        this.Houses= res.data
+        this.Houses= res.data;
+        this.filteredHouse=res.data;
         console.log(this.Houses)
       }
       ,error:(err)=>{
@@ -62,12 +64,27 @@ HouseModels(){
     } 
   })
 }
-fliterModel(event:any){
-  const filterValue = event.target.value.toLowerCase();
-  console.log(filterValue)
+
+fliterModel(filterValue: string, index: number) {
+  // إظهار أو إخفاء العنصر الصحيح باستخدام ID ديناميكي
+  const houseDetails = document.getElementById('HouseNew' + index);
+  if (houseDetails) {
+    houseDetails.classList.toggle('d-none');
+  }
+
+  // تصفية الموديلات والمنازل
+  const lowerCaseValue = filterValue.toLowerCase();
+  console.log(lowerCaseValue);
+
   this.filteredModels = this.Models.filter(model =>
-    model.attributes. media.title.toLowerCase().includes(filterValue)
+    model.attributes.model.toLowerCase().includes(lowerCaseValue)
   );
-console.log(this.filteredModels)
+
+  this.filteredHouse = this.Houses.filter(house =>
+    house.attributes.model.toLowerCase().includes(lowerCaseValue)
+  );
+
+  console.log(this.filteredModels, this.filteredHouse);
 }
+
 }

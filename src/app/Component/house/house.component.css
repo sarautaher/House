@@ -8,3 +8,10 @@ td,th{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+#house {
+    transition: all 0.5s ease-in-out; 
+}
+
+#house:hover {
+    transform: scale(1.1);
+}

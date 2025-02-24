@@ -9,5 +9,6 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideToastr(),provideHttpClient(withFetch()),importProvidersFrom(BrowserAnimationsModule),provideToastr(),provideAnimations()]
+  providers: [provideRouter(routes),provideToastr(),provideHttpClient(withFetch()),importProvidersFrom(BrowserAnimationsModule),provideToastr()
+  ,provideAnimations()]
 };
