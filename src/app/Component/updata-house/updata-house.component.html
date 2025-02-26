@@ -3,7 +3,7 @@
 
         <form class="form" (ngSubmit)="UpDate()" [formGroup]="House">
 
-            <div class="d-flex justify-content-between pt-5">
+            <div class="d-flex justify-content-between pt-5" data-aos="fade-up">
                
                     <h2>House List </h2>
                 
@@ -11,7 +11,7 @@
 
             </div>
             <div class="row gy-3">
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <label for="HouseNumber" class="form-label">House Number</label>
                     <input class="form-control rounded-pill rounded-pill" type="text" id="House Number" formControlName="house_number">
                     <div *ngIf="House.get('house_number')?.errors&&House.get('house_number')?.touched"
@@ -20,7 +20,7 @@
                        
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <label for="BlockNumber" class="form-label">Block Number</label>
                     <input class="form-control rounded-pill" type="text" id="BlockNumber" formControlName="block_number">
                     <div *ngIf="House.get('block_number')?.errors&&House.get('block_number')?.touched"
@@ -29,7 +29,7 @@
                        
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <label for="Land" class="form-label">land Number</label>
                     <input class="form-control rounded-pill" type="text" id="Land" formControlName="land_number">
                     <div *ngIf="House.get('land_number')?.errors&&House.get('land_number')?.touched"
@@ -38,7 +38,7 @@
                         
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3"data-aos="fade-up">
                     <label for="HouseType" class="form-label">House Type</label>
                     <input class="form-control rounded-pill" id="HouseType" type="text" formControlName="house_type">
                     <div *ngIf="House.get('house_type')?.errors&&House.get('house_type')?.touched" class="text-danger">
@@ -46,7 +46,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <label for="Housemodel" class="form-label">House model</label>
                     <input class="form-control rounded-pill" type="text" id="Housemodel" formControlName="model">
                     <div *ngIf="House.get('model')?.errors&&House.get('model')?.touched" class="text-danger">
@@ -54,7 +54,7 @@
                        
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <label for="Price" class="form-label">Price</label>
                     <input class="form-control rounded-pill" type="text" id="Price" formControlName="price">
                     <div *ngIf="House.get('price')?.errors&&House.get('price')?.touched" class="text-danger">
@@ -62,7 +62,7 @@
                         <small *ngIf="House.get('price')?.getError('pattern')">price Number must Number </small>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <label for="Statue" class="form-label">Statue</label>
                     <input class="form-control rounded-pill" type="text" id="Statue" formControlName="status">
                     <div *ngIf="House.get('status')?.errors&&House.get('status')?.touched" class="text-danger">

@@ -1,41 +1,50 @@
 <section id="House">
     <div class="container">
-<div class="row p-3">
-    <div class="col-md-2">
-        <a [routerLink]="['/HouseNew']" routerLinkActive="router-link-active" >
-         <button class="btn btn-light"*ngIf="userToken"> Creat House</button></a> 
-     </div>
-    <div class="col-md-2">
-            <select class="form-select rounded-pill">
+<div class="row p-3 gy-2">
+   
+    <div class="col-md-3">
+            <select class="form-select  p-3">
               <option>Block Number</option>  
                 <option *ngFor="let House of Houses">{{House.attributes.block_number}}</option>
             </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
 
-                <select class="form-select rounded-pill">
+                <select class="form-select p-3 ">
                   <option>Lana Number</option>  
                     <option *ngFor="let House of Houses">{{House.attributes.land_number}}</option>
                 </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
 
-                <select class="form-select rounded-pill">
+                <select class="form-select p-3  ">
                   <option>Price Max</option>  
                     <option *ngFor="let House of Houses">{{House.attributes.price}}</option>
                 </select>
             </div>
-            <div class="col-md-12" *ngFor="let House of Models; let i = index" data-aos="fade-up">
-                <button class="form-control fs-3 btn-primary m-3 rounded-pill house"  
+            <div class="col-md-3">
+
+              <select class="form-select p-3 ">
+                <option>Price Min </option>  
+                  <option *ngFor="let House of Houses">{{House.attributes.price}}</option>
+              </select>
+          </div>
+          <div class="col-md-2">
+            <a [routerLink]="['/HouseNew']" routerLinkActive="router-link-active" class="btn btn-light"*ngIf="userToken" >
+             Creat House</a> 
+         </div>
+            <div class="col-md-12" *ngFor="let House of Models; let i = index"  data-aos="fade-up">
+                <button class="form-control fs-3  m-3 rounded-pill house p-3 text-white text-center "  
                         (click)="fliterModel(House.attributes.model, i)" id="">
+                        <i class="fas fa-caret-down" *ngIf="!isHouseVisible[i]"></i>
+    <i class="fas fa-caret-up" *ngIf="isHouseVisible[i]"></i>
                   {{ House.attributes.media.title }}
                 </button>
-              
-                <div class="d-none house-details" [id]="'HouseNew' + i">
-                  <div class="row py-3 bg-light rounded-3">
+                <div *ngIf="isHouseVisible[i]"  data-aos="fade-in">
+
+                  <div class="row py-3 bg-light rounded-3 "data-aos="fade-in" >
                       <div class="col-md-6  ">
                         <div class=" card-img overflow-hidden rounded-3">
-
                             <img src="../../../assets/OIP.jpeg" class="w-100 card-img-top house ">
                         </div>
                       </div>
@@ -44,7 +53,6 @@
                       <p *ngIf="filteredModels.length > 0" class="fs-5">{{ filteredModels[0].attributes.media.description }}</p>
                     </div>
                   </div>
-              
                   <table  class="table m-auto  bg-light-subtle">
                     <tr class="text-center ">
                       <th>House number</th>
@@ -69,10 +77,6 @@
                   </table>
                 </div>
               </div>
-              
-              
-  
 </div>
-
     </div>
 </section>

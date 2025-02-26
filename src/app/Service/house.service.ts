@@ -1,18 +1,22 @@
+import { House } from './../Module/house';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class HouseService {
+  
   Token: any = localStorage.getItem('userToken');
   constructor(private _HttpClient: HttpClient) {}
-  AllHouse(): Observable<any> {
-    return this._HttpClient.get('https://vn-fe-test-api.iwalabs.info/houses');
+  AllHouse(): Observable<{ data: House[] }> {  
+    return this._HttpClient.get<{ data: House[] }>('https://vn-fe-test-api.iwalabs.info/houses');
   }
-  house_models():Observable<any>{
-    return this._HttpClient.get(`https://vn-fe-test-api.iwalabs.info/house_models`)
+  
+  house_models():Observable<{ data: House[] }>{
+    return this._HttpClient.get<{ data: House[] }>(`https://vn-fe-test-api.iwalabs.info/house_models`)
   }
   CreatHouse(House: any): Observable<any> {
     const headers = new HttpHeaders({
