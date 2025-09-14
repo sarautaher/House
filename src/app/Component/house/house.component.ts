@@ -19,7 +19,7 @@ export class HouseComponent implements OnInit {
   filteredModels: any[] = [];
   filteredHouse: House[] = []
   userToken: boolean = true
-  isHouseVisible: boolean[] = [];
+  isHouseVisible: number|null=null
 
   constructor(private HouseService: HouseService, private _Auth: AuthService, private _ToastrService: ToastrService) {
     _Auth.user.subscribe({
@@ -67,7 +67,11 @@ export class HouseComponent implements OnInit {
   }
 
   fliterModel(filterValue: string, index: number) {
-    this.isHouseVisible[index] = !this.isHouseVisible[index];
+    if (this.isHouseVisible === index) {
+      this.isHouseVisible = null;
+    } else {
+      this.isHouseVisible = index;
+    }
     const lowerCaseValue = filterValue.toLowerCase();
     console.log(lowerCaseValue);
     this.filteredModels = this.Models.filter(model =>

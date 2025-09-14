@@ -39,8 +39,7 @@ login(){
     this._AuthService.login(username,password).subscribe({
       next:(res)=> {
         localStorage.setItem('userToken', res.data.attributes.token  );
-        if(
-res.data.attributes.token ){
+        if(res.data.attributes.token ){
   this._ToastrService.success("Logged in successfully!")
         }
         this._AuthService.decodeUser()     

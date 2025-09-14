@@ -36,11 +36,11 @@
             <div class="col-md-12" *ngFor="let House of Models; let i = index"  data-aos="fade-up">
                 <button class="form-control fs-3  m-3 rounded-pill house p-3 text-white text-center "  
                         (click)="fliterModel(House.attributes.model, i)" id="">
-                        <i class="fas fa-caret-down" *ngIf="!isHouseVisible[i]"></i>
-    <i class="fas fa-caret-up" *ngIf="isHouseVisible[i]"></i>
+                        <i class="fas fa-caret-down" *ngIf="isHouseVisible === i"></i>
+    <i class="fas fa-caret-up" *ngIf="isHouseVisible !== i"></i>
                   {{ House.attributes.media.title }}
                 </button>
-                <div *ngIf="isHouseVisible[i]"  data-aos="fade-in">
+                <div *ngIf="isHouseVisible === i" data-aos="fade-in">
 
                   <div class="row py-3 bg-light rounded-3 "data-aos="fade-in" >
                       <div class="col-md-6  ">
