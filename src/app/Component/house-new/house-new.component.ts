@@ -1,10 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {FormControl,FormGroup, ReactiveFormsModule,Validators} from '@angular/forms';
 import { HouseService } from './../../Service/house.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
