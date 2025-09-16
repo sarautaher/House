@@ -53,6 +53,5 @@ login(){
 }
 logout(){
   this._AuthService.logOut()
-  
 }
 }
