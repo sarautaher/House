@@ -7,6 +7,5 @@ import { UpdataHouseComponent } from './Component/updata-house/updata-house.comp
 
 export const routes: Routes = [{path:"",pathMatch:'full',redirectTo:"House"},
     {path:"House",component:HouseComponent,title:'House'},
-    {path:"HouseNew",component:HouseNewComponent,title:'HouseNew',canActivate:[authGuard]},
     {path:"UpdataHouse/:id",component:UpdataHouseComponent,title:'UpdataHouse',canActivate:[authGuard]},
 ];

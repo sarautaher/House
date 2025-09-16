@@ -6,10 +6,12 @@ import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../Service/auth.service';
 import { House } from '../../Module/house';
+import { HouseNewComponent } from '../house-new/house-new.component';
+import { UpdataHouseComponent } from '../updata-house/updata-house.component';
 @Component({
   selector: 'app-house',
   standalone: true,
-  imports: [RouterLink, CommonModule, ReactiveFormsModule],
+  imports: [RouterLink, CommonModule, ReactiveFormsModule ,HouseNewComponent,UpdataHouseComponent],
   templateUrl: './house.component.html',
   styleUrl: './house.component.css'
 })
@@ -20,6 +22,7 @@ export class HouseComponent implements OnInit {
   filteredHouse: House[] = []
   userToken: boolean = true
   isHouseVisible: number|null=null
+  
 
   constructor(private HouseService: HouseService, private _Auth: AuthService, private _ToastrService: ToastrService) {
     _Auth.user.subscribe({

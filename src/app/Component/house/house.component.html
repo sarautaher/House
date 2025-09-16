@@ -28,10 +28,7 @@
                   <option *ngFor="let House of Houses">{{House.attributes.price}}</option>
               </select>
           </div>
-          <div class="col-md-3">
-            <a [routerLink]="['/HouseNew']" routerLinkActive="router-link-active" class="btn btn-light"*ngIf="userToken" >
-             Creat House</a> 
-         </div>
+        
             <div class="col-md-12" *ngFor="let House of Models; let i = index"  data-aos="fade-up">
                 <button class="form-control fs-3  m-3 rounded-pill house p-3 text-white text-center "  
                         (click)="fliterModel(House.attributes.model, i)" id="">
@@ -72,8 +69,11 @@
                       <td *ngIf="userToken">
                         <a [routerLink]="['/UpdataHouse', house.id]" routerLinkActive="router-link-active" class="nav-link bg-light-subtle">Edit</a>
                       </td>
-                    </tr>
+                    </tr>  
                   </table>
+                  <div *ngIf="userToken">
+                    <app-house-new></app-house-new>
+                  </div>
                 </div>
               </div>
 </div>
